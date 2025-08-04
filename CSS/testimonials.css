@@ -1,0 +1,36 @@
+/* Testimonials Section */
+.testimonials {
+  padding: var(--space-32) 0;
+  background: var(--color-surface);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-24);
+}
+
+.testimonial-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+}
+
+.testimonial-rating {
+  color: #fbbf24;
+  margin-bottom: var(--space-12);
+  font-size: var(--font-size-lg);
+}
+
+.testimonial-comment {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+  font-style: italic;
+}
+
+.testimonial-name {
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}

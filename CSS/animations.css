@@ -1,0 +1,328 @@
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.animate-fade-in { animation: fade-in 0.8s var(--ease-standard) both; }
+
+@keyframes fade-in-up { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: none;} }
+.animate-fade-in-up { animation: fade-in-up 0.8s var(--ease-standard) both; }
+
+@keyframes fade-in-down { from { opacity: 0; transform: translateY(-40px);} to { opacity: 1; transform: none;} }
+.animate-fade-in-down { animation: fade-in-down 0.8s var(--ease-standard) both; }
+
+@keyframes fade-in-left { from { opacity: 0; transform: translateX(-40px);} to { opacity: 1; transform: none;} }
+.animate-fade-in-left { animation: fade-in-left 0.8s var(--ease-standard) both; }
+
+@keyframes fade-in-right { from { opacity: 0; transform: translateX(40px);} to { opacity: 1; transform: none;} }
+.animate-fade-in-right { animation: fade-in-right 0.8s var(--ease-standard) both; }
+
+/* Slide In */
+@keyframes slide-in-top { from { transform: translateY(-100%); opacity: 0; } to { transform: none; opacity: 1; } }
+.animate-slide-in-top { animation: slide-in-top 0.7s var(--ease-standard) both; }
+
+@keyframes slide-in-bottom { from { transform: translateY(100%); opacity: 0; } to { transform: none; opacity: 1; } }
+.animate-slide-in-bottom { animation: slide-in-bottom 0.7s var(--ease-standard) both; }
+
+@keyframes slide-in-left { from { transform: translateX(-100%); opacity: 0; } to { transform: none; opacity: 1; } }
+.animate-slide-in-left { animation: slide-in-left 0.7s var(--ease-standard) both; }
+
+@keyframes slide-in-right { from { transform: translateX(100%); opacity: 0; } to { transform: none; opacity: 1; } }
+.animate-slide-in-right { animation: slide-in-right 0.7s var(--ease-standard) both; }
+
+/* Zoom */
+@keyframes zoom-in { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.animate-zoom-in { animation: zoom-in 0.7s var(--ease-standard) both; }
+
+@keyframes zoom-in-up { from { transform: scale(0.8) translateY(40px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+.animate-zoom-in-up { animation: zoom-in-up 0.7s var(--ease-standard) both; }
+
+@keyframes zoom-in-down { from { transform: scale(0.8) translateY(-40px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+.animate-zoom-in-down { animation: zoom-in-down 0.7s var(--ease-standard) both; }
+
+@keyframes zoom-in-left { from { transform: scale(0.8) translateX(-40px); opacity: 0; } to { transform: scale(1) translateX(0); opacity: 1; } }
+.animate-zoom-in-left { animation: zoom-in-left 0.7s var(--ease-standard) both; }
+
+@keyframes zoom-in-right { from { transform: scale(0.8) translateX(40px); opacity: 0; } to { transform: scale(1) translateX(0); opacity: 1; } }
+.animate-zoom-in-right { animation: zoom-in-right 0.7s var(--ease-standard) both; }
+
+/* Bounce */
+@keyframes bounce-in { 0% { transform: scale(0.8); opacity: 0; } 60% { transform: scale(1.05); opacity: 1; } 80% { transform: scale(0.95); } 100% { transform: scale(1); } }
+.animate-bounce-in { animation: bounce-in 0.8s var(--ease-standard) both; }
+
+@keyframes bounce { 0%, 100% { transform: translateY(0);} 50% { transform: translateY(-10px);} }
+.animate-bounce { animation: bounce 1.2s infinite; }
+
+/* Pulse */
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+.animate-pulse { animation: pulse 1.2s infinite; }
+
+/* Flip */
+@keyframes flip-in-x { from { transform: perspective(400px) rotateX(90deg); opacity: 0; } to { transform: perspective(400px) rotateX(0); opacity: 1; } }
+.animate-flip-in-x { animation: flip-in-x 0.7s var(--ease-standard) both; }
+
+@keyframes flip-in-y { from { transform: perspective(400px) rotateY(90deg); opacity: 0; } to { transform: perspective(400px) rotateY(0); opacity: 1; } }
+.animate-flip-in-y { animation: flip-in-y 0.7s var(--ease-standard) both; }
+
+/* Rotate */
+@keyframes rotate-in { from { transform: rotate(-200deg); opacity: 0; } to { transform: rotate(0); opacity: 1; } }
+.animate-rotate-in { animation: rotate-in 0.7s var(--ease-standard) both; }
+
+/* Jack In The Box */
+@keyframes jack-in-the-box {
+  from { opacity: 0; transform: scale(0.1) rotate(30deg); }
+  50% { transform: rotate(-10deg); }
+  70% { transform: rotate(3deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+.animate-jack-in-the-box { animation: jack-in-the-box 0.8s var(--ease-standard) both; }
+
+/* Rubber Band */
+@keyframes rubber-band {
+  0% { transform: scaleX(1); }
+  30% { transform: scaleX(1.25); }
+  40% { transform: scaleX(0.75); }
+  50% { transform: scaleX(1.15); }
+  65% { transform: scaleX(0.95); }
+  75% { transform: scaleX(1.05); }
+  100% { transform: scaleX(1); }
+}
+.animate-rubber-band { animation: rubber-band 1s both; }
+
+/* Shake */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+.animate-shake { animation: shake 0.8s both; }
+
+/* Swing */
+@keyframes swing {
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+.animate-swing { animation: swing 1s both; }
+
+/* Tada */
+@keyframes tada {
+  0% { transform: scale(1); }
+  10%, 20% { transform: scale(0.9) rotate(-3deg); }
+  30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+  40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+.animate-tada { animation: tada 1s both; }
+
+/* Heartbeat */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%, 28% { transform: scale(1.3); }
+  42% { transform: scale(1); }
+}
+.animate-heartbeat { animation: heartbeat 1.2s infinite; }
+
+/* LightSpeed In */
+@keyframes light-speed-in-right {
+  from { transform: translate3d(100%, 0, 0) skewX(-30deg); opacity: 0; }
+  60% { transform: skewX(20deg); opacity: 1; }
+  80% { transform: skewX(-5deg); opacity: 1; }
+  to { transform: none; opacity: 1; }
+}
+.animate-light-speed-in-right { animation: light-speed-in-right 0.7s both; }
+
+@keyframes light-speed-in-left {
+  from { transform: translate3d(-100%, 0, 0) skewX(30deg); opacity: 0; }
+  60% { transform: skewX(-20deg); opacity: 1; }
+  80% { transform: skewX(5deg); opacity: 1; }
+  to { transform: none; opacity: 1; }
+}
+.animate-light-speed-in-left { animation: light-speed-in-left 0.7s both; }
+
+/* Roll In */
+@keyframes roll-in-left {
+  from { opacity: 0; transform: translateX(-100%) rotate(-120deg); }
+  to { opacity: 1; transform: none; }
+}
+.animate-roll-in-left { animation: roll-in-left 0.7s both; }
+
+@keyframes roll-in-right {
+  from { opacity: 0; transform: translateX(100%) rotate(120deg); }
+  to { opacity: 1; transform: none; }
+}
+.animate-roll-in-right { animation: roll-in-right 0.7s both; }
+
+/* Pop In */
+@keyframes pop-in {
+  0% { transform: scale(0.5); opacity: 0; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-pop-in { animation: pop-in 0.6s both; }
+
+/* Grow In */
+@keyframes grow-in {
+  from { transform: scaleY(0); opacity: 0; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+.animate-grow-in { animation: grow-in 0.6s both; }
+
+/* Shrink In */
+@keyframes shrink-in {
+  from { transform: scale(1.2); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.animate-shrink-in { animation: shrink-in 0.6s both; }
+
+/* Fade Out */
+@keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+.animate-fade-out { animation: fade-out 0.7s both; }
+
+/* Slide Out */
+@keyframes slide-out-bottom { from { transform: none; opacity: 1; } to { transform: translateY(100%); opacity: 0; } }
+.animate-slide-out-bottom { animation: slide-out-bottom 0.7s both; }
+
+/* Custom: staggered fade-in for grid items */
+.stagger-fade-in > * {
+  opacity: 0;
+  animation: fade-in-up 0.7s var(--ease-standard) both;
+}
+.stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-fade-in > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Subtle hover animations for cards, buttons, and links */
+
+/* Card hover: gently scale up and add shadow */
+.category-card,
+.product-card,
+.service-card,
+.testimonial-card,
+.faq-item,
+.deal-card {
+  transition: transform 0.25s var(--ease-standard), box-shadow 0.25s var(--ease-standard);
+}
+.category-card:hover,
+.product-card:hover,
+.service-card:hover,
+.testimonial-card:hover,
+.faq-item:hover,
+.deal-card:hover {
+  transform: translateY(-4px) scale(1.025);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.07), var(--shadow-lg);
+}
+
+/* Button hover: gentle scale and shadow */
+.btn,
+.cart-btn {
+  transition: transform 0.18s var(--ease-standard), box-shadow 0.18s var(--ease-standard);
+}
+.btn:hover,
+.cart-btn:hover {
+  transform: scale(1.045);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* Nav link hover: underline slide-in effect */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transition: transform 0.22s var(--ease-standard);
+  transform-origin: left;
+}
+.nav-link:hover::after,
+.nav-link:focus::after {
+  transform: scaleX(1);
+}
+
+/* FAQ question hover: slight scale and color */
+.faq-question {
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+.faq-question:hover,
+.faq-question:focus {
+  background: var(--color-secondary-hover);
+  color: var(--color-primary-hover);
+  transform: scale(1.03);
+}
+
+/* Store location map hover: gentle shadow pop */
+.map-responsive {
+  transition: box-shadow 0.22s var(--ease-standard), transform 0.22s var(--ease-standard);
+}
+.map-responsive:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10), var(--shadow-lg);
+  transform: scale(1.01);
+}
+
+/* Animate footer links on hover */
+.footer-links a {
+  transition: color 0.18s, transform 0.18s;
+}
+.footer-links a:hover {
+  color: var(--color-primary);
+  transform: scale(1.07);
+}
+
+/* Animate contact info icons on hover */
+.contact-icon {
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+.contact-item:hover .contact-icon {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  transform: scale(1.09);
+}
+
+/* Animate modal close button on hover */
+.modal-close {
+  transition: color 0.18s, transform 0.18s;
+}
+.modal-close:hover {
+  color: var(--color-error);
+  transform: scale(1.15) rotate(12deg);
+}
+
+/* Animate cart item remove button on hover */
+.cart-item .btn--outline:hover {
+  color: var(--color-error);
+  border-color: var(--color-error);
+  transform: scale(1.07);
+}
+
+/* Animate deal timer on hover */
+.deal-timer {
+  transition: color 0.18s, transform 0.18s;
+}
+.deal-timer:hover {
+  color: var(--color-primary-hover);
+  transform: scale(1.06);
+}
+
+/* Animate testimonial rating on hover */
+.testimonial-rating {
+  transition: color 0.18s, transform 0.18s;
+}
+.testimonial-card:hover .testimonial-rating {
+  color: var(--color-warning);
+  transform: scale(1.08);
+}
+
+/* Animate about feature icon on hover */
+.feature-icon {
+  transition: color 0.18s, transform 0.18s;
+}
+.feature:hover .feature-icon {
+  color: var(--color-primary-hover);
+  transform: scale(1.12) rotate(-8deg);
+}

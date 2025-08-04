@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laksh's Store - No Delivery Charges - Shop with Ease!</title>
+    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/hero.css">
+    <link rel="stylesheet" href="CSS/about.css">
+    <link rel="stylesheet" href="CSS/categories.css">
+    <link rel="stylesheet" href="CSS/products.css">
+    <link rel="stylesheet" href="CSS/services.css">
+    <link rel="stylesheet" href="CSS/testimonials.css">
+    <link rel="stylesheet" href="CSS/contact.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/modal.css">
+    <link rel="stylesheet" href="CSS/animations.css">
+</head>
+<body>
+    <!-- Promotional Banner / Announcement Bar -->
+    <div class="promo-banner animate-fade-in-down">
+        <span>🎉 Free Delivery on All Orders! | Use code <strong>LAKSH10</strong> for 10% OFF</span>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header animate-slide-in-top">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="Pages/products.html" class="logo-link" title="Go to Products">
+                        <h2>🏪 Laksh's Store</h2>
+                    </a>
+                </div>
+                <nav class="nav desktop-nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="Pages/about.html" class="nav-link">About</a>
+                    <a href="Pages/products.html" class="nav-link">Products</a>
+                    <a href="Pages/services.html" class="nav-link">Services</a>
+                    <a href="Pages/contact.html" class="nav-link">Contact</a>
+                </nav>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="header-actions">
+                    <a href="tel:+919876543210" class="phone phone-link" title="Call us" id="phoneLink">
+                        <span class="phone-icon">📞</span>
+                        <span class="phone-number" id="phoneNumber">+91-9876543210</span>
+                        <span class="copy-tooltip" id="copyTooltip" style="display:none;">Copied!</span>
+                    </a>
+                    <button class="cart-btn" id="cartBtn">
+                        🛒 Cart (<span id="cartCount">0</span>)
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Drawer -->
+        <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
+            <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="Pages/about.html" class="nav-link">About</a>
+            <a href="Pages/products.html" class="nav-link">Products</a>
+            <a href="Pages/services.html" class="nav-link">Services</a>
+            <a href="Pages/contact.html" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero animate-zoom-in">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text animate-fade-in-left">
+                    <h1 class="animate-fade-in-up">Welcome to Laksh's Store</h1>
+                    <p class="hero-tagline animate-fade-in-up" style="animation-delay:0.1s;">No Delivery Charges - Shop with Ease!</p>
+                    <p class="hero-description animate-fade-in-up" style="animation-delay:0.2s;">Your friendly neighborhood store offering fresh groceries, snacks, beauty products, and household essentials at the best prices.</p>
+                    <div class="hero-buttons animate-bounce-in" style="animation-delay:0.3s;">
+                        <button class="btn btn--primary btn--lg animate-pulse" onclick="scrollToSection('products')">Shop Now</button>
+                        <button class="btn btn--outline btn--lg animate-pulse" style="animation-delay:0.1s;" onclick="scrollToSection('about')">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-image animate-fade-in-right">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1748583724/pplx_project_search_images/e7ccd411a758c3812a37cc25944ac6e8a7e82465.jpg" alt="Modern Store Interior" class="hero-img animate-zoom-in" style="animation-delay:0.2s;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Categories Section -->
+    <section class="categories animate-fade-in-up" id="popular-categories">
+        <div class="container">
+            <h2 class="section-title animate-fade-in-up">Popular Categories</h2>
+            <div class="categories-grid stagger-fade-in" id="categoriesGrid">
+                <!-- Categories will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers / Trending Products Section -->
+    <section class="featured-products animate-fade-in-up" id="best-sellers">
+        <div class="container">
+            <h2 class="section-title animate-fade-in-up">Best Sellers</h2>
+            <div class="products-grid stagger-fade-in" id="featuredProducts">
+                <!-- Featured products will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Limited Time Offer / Deal of the Day -->
+    <section class="deal-of-day animate-jack-in-the-box">
+        <div class="container">
+            <div class="deal-card">
+                <div class="deal-info">
+                    <h2>🔥 Deal of the Day</h2>
+                    <p><strong>Basmati Rice</strong> at just <span class="deal-price">₹70/kg</span> (Today Only!)</p>
+                    <div class="deal-timer" id="dealTimer">Ends in: <span id="dealCountdown">23:59:59</span></div>
+                    <button class="btn btn--primary btn--lg" onclick="showProductModal(1)">Shop Deal</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Location Map -->
+    <section class="store-location animate-fade-in-up">
+        <div class="container">
+            <h2 class="section-title">Visit Our Store</h2>
+            <div class="map-responsive">
+                <iframe
+                    src="https://www.google.com/maps?q=123+Main+Street,+Your+City&output=embed"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="text-center mt-16">123 Main Street, Your City</p>
+        </div>
+    </section>
+
+    <!-- FAQ / Help Section -->
+    <section class="faq animate-fade-in-up">
+        <div class="container">
+            <h2 class="section-title animate-fade-in-up">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item animate-zoom-in-left">
+                    <button class="faq-question" onclick="toggleFaq(this)">What are your delivery charges?</button>
+                    <div class="faq-answer">We offer <strong>free delivery</strong> on all orders, no minimum purchase required!</div>
+                </div>
+                <div class="faq-item animate-zoom-in-right">
+                    <button class="faq-question" onclick="toggleFaq(this)">How can I pay for my order?</button>
+                    <div class="faq-answer">You can pay via UPI, QR code, or cash on delivery.</div>
+                </div>
+                <div class="faq-item animate-zoom-in-left">
+                    <button class="faq-question" onclick="toggleFaq(this)">How quickly will my order be delivered?</button>
+                    <div class="faq-answer">Most orders are delivered within 1-2 hours in your city.</div>
+                </div>
+                <div class="faq-item animate-zoom-in-right">
+                    <button class="faq-question" onclick="toggleFaq(this)">How do I contact customer support?</button>
+                    <div class="faq-answer">Call us at +91-9876543210 or email contact@lakshstore.com.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Cart Bar (Mobile Only) -->
+    <div class="sticky-cart-bar" id="stickyCartBar">
+        <button class="cart-btn btn--lg" onclick="showCartModal()">
+            🛒 View Cart (<span id="stickyCartCount">0</span>)
+        </button>
+    </div>
+
+    <!-- Floating Action Button (FAB) -->
+    <button class="fab" id="fabHelp" aria-label="Help/Contact" onclick="window.location.href='Pages/contact.html'">
+        <span>❓</span>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer animate-fade-in-up">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Laksh's Store</h4>
+                    <p>Your trusted neighborhood store for all daily essentials.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Pages/about.html">About</a></li>
+                        <li><a href="Pages/products.html">Products</a></li>
+                        <li><a href="Pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 +91-9876543210</p>
+                    <p>✉️ contact@lakshstore.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Laksh's Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="JS/common.js"></script>
+    <script src="JS/categories.js"></script>
+    <script src="JS/products.js"></script>
+    <script src="JS/services.js"></script>
+    <script src="JS/testimonials.js"></script>
+    <script src="JS/cart.js"></script>
+    <script src="JS/checkout.js"></script>
+    <script src="JS/main.js"></script>
+    <script>
+    // Deal of the Day Countdown
+    function updateDealCountdown() {
+        const now = new Date();
+        const end = new Date();
+        end.setHours(23,59,59,999);
+        let diff = end - now;
+        if (diff < 0) diff = 0;
+        const h = String(Math.floor(diff/3600000)).padStart(2,'0');
+        const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+        const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+        document.getElementById('dealCountdown').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateDealCountdown, 1000);
+    updateDealCountdown();
+
+    // FAQ toggle
+    function toggleFaq(btn) {
+        btn.classList.toggle('active');
+        const answer = btn.nextElementSibling;
+        if (btn.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+            answer.style.maxHeight = null;
+        }
+    }
+
+    // Copy phone number to clipboard on click
+    document.addEventListener('DOMContentLoaded', function() {
+        var phoneLink = document.getElementById('phoneLink');
+        var phoneNumber = document.getElementById('phoneNumber');
+        var copyTooltip = document.getElementById('copyTooltip');
+        if (phoneLink && phoneNumber && copyTooltip) {
+            phoneLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(phoneNumber.textContent.trim());
+                copyTooltip.style.display = 'inline-block';
+                setTimeout(function() {
+                    copyTooltip.style.display = 'none';
+                }, 1200);
+            });
+        }
+    });
+
+    // Hamburger menu logic
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    hamburgerBtn.addEventListener('click', () => {
+        mobileDrawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
+    drawerCloseBtn.addEventListener('click', () => {
+        mobileDrawer.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+    // Close drawer on link click (mobile)
+    mobileDrawer.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileDrawer.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Sticky cart bar logic
+    function updateStickyCartBar() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('stickyCartCount').textContent = totalItems;
+        document.getElementById('stickyCartBar').style.display = (window.innerWidth <= 700 && totalItems > 0) ? 'flex' : 'none';
+    }
+    window.addEventListener('resize', updateStickyCartBar);
+    document.addEventListener('DOMContentLoaded', updateStickyCartBar);
+    // Also update when cart changes
+    const origUpdateCartDisplay = updateCartDisplay;
+    updateCartDisplay = function() {
+        origUpdateCartDisplay();
+        updateStickyCartBar();
+    };
+    </script>
+</body>
+</html>

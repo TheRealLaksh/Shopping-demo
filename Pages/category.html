@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Products - Laksh's Store</title>
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/products.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/modal.css">
+    <link rel="stylesheet" href="../CSS/animations.css">
+</head>
+<body>
+    <header class="header animate-slide-in-top">
+        <!-- ...copy header from other pages... -->
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="products.html" class="logo-link" title="Go to Products">
+                        <h2>🏪 Laksh's Store</h2>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="tel:+919876543210" class="phone phone-link" title="Call us" id="phoneLink">
+                        <span class="phone-icon">📞</span>
+                        <span class="phone-number" id="phoneNumber">+91-9876543210</span>
+                        <span class="copy-tooltip" id="copyTooltip" style="display:none;">Copied!</span>
+                    </a>
+                    <button class="cart-btn" id="cartBtn">
+                        🛒 Cart (<span id="cartCount">0</span>)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="category-products animate-fade-in-up">
+        <div class="container">
+            <h2 class="section-title" id="categoryTitle">Category</h2>
+            <div class="products-grid" id="categoryProductsGrid">
+                <!-- Products will be populated by JS -->
+            </div>
+        </div>
+    </section>
+    <!-- Product Modal (reuse your modal markup if needed) -->
+    <div id="productModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalProductName"></h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="product-details">
+                    <div class="product-price">₹<span id="modalProductPrice"></span>/<span id="modalProductUnit"></span></div>
+                    <div class="quantity-controls">
+                        <label>Quantity:</label>
+                        <div class="quantity-input">
+                            <button type="button" class="qty-btn" id="decreaseQty">-</button>
+                            <input type="number" id="modalQuantity" value="1" min="1" class="qty-field">
+                            <button type="button" class="qty-btn" id="increaseQty">+</button>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--full-width" id="addToCartBtn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer animate-fade-in-up">
+        <!-- ...copy footer from other pages... -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Laksh's Store</h4>
+                    <p>Your trusted neighborhood store for all daily essentials.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 +91-9876543210</p>
+                    <p>✉️ contact@lakshstore.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Laksh's Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../JS/common.js"></script>
+    <script src="../JS/cart.js"></script>
+    <script>
+    // Get category from URL
+    function getCategoryId() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('cat');
+    }
+
+    // Render products for the category
+    function renderCategoryProducts() {
+        const catId = getCategoryId();
+        const category = storeData.categories.find(c => c.id === catId);
+        const products = storeData.products.filter(p => p.category === catId);
+
+        document.getElementById('categoryTitle').textContent = category ? category.name : 'Category';
+
+        const html = products.map(product => `
+            <div class="product-card animate-fade-in-up">
+                <div class="product-name">${product.name}</div>
+                <div class="product-price">₹${product.price}/${product.unit}</div>
+                <button class="btn btn--primary btn--sm" data-product-id="${product.id}">Add to Cart</button>
+            </div>
+        `).join('');
+        document.getElementById('categoryProductsGrid').innerHTML = html;
+
+        // Attach event listeners for Add to Cart buttons
+        document.querySelectorAll('.btn[data-product-id]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const productId = parseInt(this.getAttribute('data-product-id'));
+                const product = storeData.products.find(p => p.id === productId);
+                addToCart(product, 1);
+            });
+        });
+
+        // Attach event listeners for product card click (show modal)
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Prevent modal if Add to Cart button was clicked
+                if (e.target.tagName.toLowerCase() === 'button') return;
+                const name = this.querySelector('.product-name').textContent;
+                const product = storeData.products.find(p => p.name === name);
+                if (product) showProductModal(product.id);
+            });
+        });
+    }
+
+    // Modal logic (reuse from your main JS)
+    let currentProduct = null;
+    function showProductModal(productId) {
+        currentProduct = storeData.products.find(product => product.id === productId);
+        document.getElementById('modalProductName').textContent = currentProduct.name;
+        document.getElementById('modalProductPrice').textContent = currentProduct.price;
+        document.getElementById('modalProductUnit').textContent = currentProduct.unit;
+        document.getElementById('modalQuantity').value = 1;
+        document.getElementById('productModal').classList.remove('hidden');
+    }
+    document.getElementById('closeModal').onclick = () => document.getElementById('productModal').classList.add('hidden');
+    document.getElementById('decreaseQty').onclick = () => {
+        const qtyField = document.getElementById('modalQuantity');
+        if (parseInt(qtyField.value) > 1) qtyField.value = parseInt(qtyField.value) - 1;
+    };
+    document.getElementById('increaseQty').onclick = () => {
+        const qtyField = document.getElementById('modalQuantity');
+        qtyField.value = parseInt(qtyField.value) + 1;
+    };
+    document.getElementById('addToCartBtn').onclick = () => {
+        if (currentProduct) {
+            const quantity = parseInt(document.getElementById('modalQuantity').value);
+            addToCart(currentProduct, quantity);
+            document.getElementById('productModal').classList.add('hidden');
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', renderCategoryProducts);
+    </script>
+</body>
+</html>

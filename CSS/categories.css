@@ -1,0 +1,64 @@
+/* Categories Section */
+.categories {
+  padding: var(--space-32) 0;
+  background: var(--color-bg-2);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-24);
+}
+
+.category-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  text-align: center;
+  border: 1px solid var(--color-card-border);
+  transition: all var(--duration-normal) var(--ease-standard);
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.category-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-16);
+}
+
+.category-card h3 {
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+.category-card p {
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.sample-products {
+  margin-top: var(--space-16);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-align: left;
+}
+
+.sample-products ul {
+  margin: var(--space-4) 0 0 0;
+  padding-left: var(--space-16);
+}
+
+.sample-products li {
+  margin-bottom: var(--space-4);
+  list-style: disc;
+}
+
+@media (max-width: 480px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+}

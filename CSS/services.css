@@ -1,0 +1,34 @@
+/* Services Section */
+.services {
+  padding: var(--space-32) 0;
+  background: var(--color-bg-3);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-24);
+}
+
+.service-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  text-align: center;
+  border: 1px solid var(--color-card-border);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-16);
+}
+
+.service-card h4 {
+  color: var(--color-text);
+  margin-bottom: var(--space-12);
+}
+
+.service-card p {
+  color: var(--color-text-secondary);
+  margin: 0;
+}
